@@ -10,16 +10,6 @@ pipeline {
     }
 
     stages {
-#        stage('Clone Git') {
-#            steps {
-#                script {
-#                    git branch: 'master',
-#                        credentialsId: 'git-token',
-#                        url: "${GITHUB_REPO_URL}"
-#                }
-#            }
-#        }
-
         stage('Build the Maven Project') {
             steps {
                 sh 'mvn clean package -DskipTests'
