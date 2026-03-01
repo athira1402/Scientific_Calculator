@@ -60,20 +60,17 @@ pipeline {
     }
 
     post {
-        success {
-            emailext(
-                subject: "SUCCESS: ${env.JOB_NAME}",
-                body: "Build successful: ${env.BUILD_URL}",
-                to: "athira.lonappan@gmail.com"
-            )
-        }
-
-        failure {
-            emailext(
-                subject: "FAILED: ${env.JOB_NAME}",
-                body: "Build failed: ${env.BUILD_URL}",
-                to: "athira.lonappan@gmail.com"
-            )
-        }
+    always {
+        emailext(
+            subject: "JENKINS BUILD ${currentBuild.currentResult}",
+            body: """
+            Result: ${currentBuild.currentResult}
+            Job: ${env.JOB_NAME}
+            Build: ${env.BUILD_NUMBER}
+            URL: ${env.BUILD_URL}
+            """,
+            to: "athira.lonappan@gmail.com"
+        )
     }
+}
 }
