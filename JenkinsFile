@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven3'
+    }
     environment {
         DOCKER_IMAGE_NAME = 'scientific_calculator'
         GITHUB_REPO_URL = 'https://github.com/athira1402/Scientific_Calculator.git'
@@ -7,16 +10,6 @@ pipeline {
     }
 
     stages {
-        stage('Clone Git') {
-            steps {
-                script {
-                    git branch: 'master',
-                        credentialsId: 'github_credentials',
-                        url: "${GITHUB_REPO_URL}"
-                }
-            }
-        }
-
         stage('Build the Maven Project') {
             steps {
                 sh 'mvn clean package -DskipTests'
@@ -46,7 +39,7 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('', 'docker-hub-credential') {
+                    docker.withRegistry('', 'DockerHubCred') {
                         sh "docker tag ${DOCKER_IMAGE_NAME} ${DOCKER_HUB_USERNAME}/${DOCKER_IMAGE_NAME}:latest"
                         sh "docker push ${DOCKER_HUB_USERNAME}/${DOCKER_IMAGE_NAME}:latest"
                     }
@@ -59,7 +52,7 @@ pipeline {
                 script {
                     ansiblePlaybook(
                         playbook: 'deploy.yml',
-                        inventory: 'inventory'
+                        inventory: 'inventory.ini'
                     )
                 }
             }
