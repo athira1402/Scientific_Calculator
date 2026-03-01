@@ -61,7 +61,7 @@ pipeline {
 
     post {
     always {
-        mail(
+        email(
             to: "athira.lonappan@gmail.com",
             subject: "JENKINS BUILD ${currentBuild.currentResult}",
             body: """
