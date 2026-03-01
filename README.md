@@ -52,6 +52,6 @@ Deployment is automated using Ansible:
 
 ---
 
-## 🚀 Conclusion
+## Conclusion
 
 This project demonstrates a complete end-to-end CI/CD workflow, from source code management to a running containerized application. The integration of GitHub, Jenkins, Maven, JUnit, Docker, and Ansible ensures automated builds, reliable testing, consistent containerization, and streamlined deployment.
