@@ -61,16 +61,15 @@ pipeline {
 
     post {
     always {
-        emailext(
+        mail(
+            to: "athira.lonappan@gmail.com",
             subject: "JENKINS BUILD ${currentBuild.currentResult}",
             body: """
-            Result: ${currentBuild.currentResult}
-            Job: ${env.JOB_NAME}
-            Build: ${env.BUILD_NUMBER}
-            URL: ${env.BUILD_URL}
-            """,
-            from: "athira.lonappan@gmail.com",
-            to: "lonappansini@gmail.com"
+    Result: ${currentBuild.currentResult}
+    Job: ${env.JOB_NAME}
+    Build: ${env.BUILD_NUMBER}
+    URL: ${env.BUILD_URL}
+    """
         )
     }
 }
