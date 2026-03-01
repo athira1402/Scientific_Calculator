@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.Scanner;
 
 public class Calculator {
@@ -55,7 +57,7 @@ public class Calculator {
 
         // Loop to keep the calculator running until user decides to exit
         do {
-            System.out.println("====== Scientific Calculator ======");
+            System.out.println("====== Scientific org.example.Calculator ======");
             System.out.println("1. Add\n2. Subtract\n3. Multiply\n4. Divide");
             System.out.println("5. Power\n6. Square Root\n7. Logarithm\n8. Factorial");
             System.out.println("9. Exit");

@@ -1,5 +1,5 @@
 ---
-- name: Deploy Calculator App with Docker
+- name: Deploy org.example.Calculator App with Docker
   hosts: webserver
   tasks:
     - name: Install Docker
