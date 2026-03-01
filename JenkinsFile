@@ -70,7 +70,7 @@ pipeline {
             URL: ${env.BUILD_URL}
             """,
             to: "athira.lonappan@gmail.com",
-            from: "athira.lonappan@gmail.com"
+            from: "lonappansini@gmail.com"
         )
     }
 }
