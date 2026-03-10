@@ -23,4 +23,3 @@
         image: athira1402/scientific_calculator:latest
         state: started
         restart_policy: always
-        interactive: true
