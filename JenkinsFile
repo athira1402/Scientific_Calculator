@@ -1,4 +1,4 @@
-//Jenkinsfile all stages
+//Jenkinsfile has all stages
 pipeline {
     agent any
     tools {
